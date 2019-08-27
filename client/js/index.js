@@ -29,4 +29,5 @@ document.querySelector('.form').addEventListener('submit', function(event){
     campos[2].value = 2;
 
     campos[0].focus();
+
 });
