@@ -1,6 +1,6 @@
-class NegociacaoController{
+class NegociacaoController {
 
-    constructor(){
+    constructor() {
 
         let $ = document.querySelector.bind(document);
         this._inputData = $('#data');
@@ -9,21 +9,33 @@ class NegociacaoController{
 
     }
 
-    adiciona(event){
+    adiciona(event) {
 
         event.preventDefault();
-        
+
         let data = new Date(...
             this._inputData.value
             .split('-')
-            .map((item, indice) => item - indice % 2)         
-        );
+            .map((item, indice) => item - indice % 2)
+        );        
 
         let negociacao = new Negociacao(
             data,
             this._inputQuantidade.value,
             this._inputValor.value
-        );
+          );
+
         console.log(negociacao);
     }
 }
+
+ /* let data = new Date(...
+            this._inputData.value
+            .split('-')
+            .map(function(item, indice){
+                if (indice == 1){
+                    return item - 1;
+                }
+                return item;
+            })
+        ); */
