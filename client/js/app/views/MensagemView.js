@@ -1,6 +1,6 @@
 class MensagemView extends View {
   
-  constructor(elemento){
+  constructor(elemento) {
 
     super(elemento);
 }
