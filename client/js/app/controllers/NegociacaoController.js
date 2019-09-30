@@ -27,11 +27,6 @@ class NegociacaoController {
     }
           });
 
-        /*
-        this._listaNegociacoes = new ListaNegociacoes(model =>
-            this._negociacoesView.update(model)); 
-            */
-
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));
         this._negociacoesView.update(this._listaNegociacoes);
 
