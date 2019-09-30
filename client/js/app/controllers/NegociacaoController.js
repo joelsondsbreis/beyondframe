@@ -7,6 +7,7 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
 
+        let self = this;
 
         this._listaNegociacoes =  new Proxy(new ListaNegociacoes(), {
 
@@ -18,6 +19,7 @@ class NegociacaoController {
     
                 console.log(`a propriedade "${prop}" foi interceptada`);
                 Reflect.apply(target[prop], target, arguments);
+                self._negociacoesView.update(target);
             }
         }
     
