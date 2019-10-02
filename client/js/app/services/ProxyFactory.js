@@ -2,11 +2,11 @@ class ProxyFactory {
 
     static create (objeto, props, acao) {
 
-        return new Proxy(new ListaNegociacoes(), {
+        return new Proxy(objeto, {
 
             get(target, prop, receiver) {
     
-        if(props.includes(prop) && typeof(target[prop]) == typeof(Function)) {
+        if(props.includes(prop) && ProxyFactory._itsFunction(target[prop])) {
     
             return function() {
     
@@ -17,8 +17,23 @@ class ProxyFactory {
         }
     
         return Reflect.get(target, prop, receiver);
+    },
+    
+    set(target, prop, value, receiver) {
+
+        if(props.includes(prop)) {
+            target[prop] = value;
+            acao(target);
+        }
+
+        Reflect.set(target, prop, value, receiver);
+
     }
           });
+    }
+    static _itsFunction(func) {
+
+        return typeof(func) == typeof(Function);
     }
    
 }
