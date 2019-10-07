@@ -26,6 +26,12 @@ class NegociacaoController {
         this._mensagem.texto = 'Negociacao adicionada com sucesso';
         this._limpaFormulario();
     }
+
+    importaNegociacao() {
+       
+      let xhr = XMLHttpRequest();
+      xhr.open('GET');
+    }
     
     apaga() {
 
