@@ -28,9 +28,9 @@ class ProxyFactory {
 
         Reflect.set(target, prop, value, receiver);
 
-    }
-          });
-    }
+        }
+    });
+}
     static _itsFunction(func) {
 
         return typeof(func) == typeof(Function);
